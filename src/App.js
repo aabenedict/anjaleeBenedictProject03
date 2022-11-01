@@ -1,24 +1,29 @@
-import logo from './logo.svg';
+// Import CSS
 import './App.css';
+// Import Components
+import Header from './Header';
+import Store from './Store';
+import Footer from './Footer';
+
+import { useState } from 'react';
 
 function App() {
 
+  const [buttonClick, setButtonClick] = useState(false)
+  const handleClick = () => {
+    setButtonClick(!buttonClick)
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header />
+      <button onClick={handleClick}>Go To Store</button>
+      {
+        buttonClick
+          ? <Store />
+          : null
+      }
+      <Footer />
     </div>
   );
 }
