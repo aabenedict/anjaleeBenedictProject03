@@ -310,7 +310,7 @@ p {
 
 body {
   overflow-x: hidden;
-  background-color: #F4F4F4;
+  background-color: #FFF;
 }
 
 .wrapper {
@@ -323,6 +323,21 @@ img {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+.gallery {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.galleryItem {
+  width: 33%;
+}
+.galleryItem button {
+  border: none;
 }
 
 nav {

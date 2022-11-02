@@ -3,8 +3,9 @@ import firebaseConfig from './firebase';
 // NPM Modules
 import { useEffect, useState } from 'react';
 import { getDatabase, ref, onValue} from 'firebase/database'
-// Import Components
-import Item from "./Item";
+// import Link from react router
+import { Link } from "react-router-dom";
+
 
 const Store = () => {
     console.log("Store has rendered")
@@ -26,9 +27,9 @@ const Store = () => {
             const data = response.val().inventory
             // loop through the returned object
             for (let item in data) {
-                newArray.push({ key: item, name: data[item] })
+                newArray.push({ id: item, value: data[item] })
             }
-            // updating state with the new array!
+            // updating state with the new array
             console.log(newArray)
             setStoreData(newArray)
         })
@@ -39,10 +40,16 @@ const Store = () => {
     return (
         <>
             <h2>Store is Here</h2>
-            <ul>
+            <ul className='gallery'>
                 {
                     storeData.map((storeItem) => {
-                        return <Item key={storeItem.key} storeData={storeItem.name} />
+                        return (
+                            <li key={storeItem.id} className='galleryItem'>
+                                <Link to={`/item/${storeItem.id}`}>
+                                    <img src={storeItem.value.image} alt={storeItem.value.description} />
+                                </Link>
+                            </li>
+                        ) 
                     })
                 }
             </ul>
