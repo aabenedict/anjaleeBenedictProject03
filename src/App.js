@@ -3,7 +3,6 @@ import './App.css';
 // Import Linking and Routing
 import { Link, Routes, Route } from 'react-router-dom';
 import logo from './assets/logo.png'
-import headerImage from './assets/headerImage.jpg'
 
 // Import Components
 import Store from './Store';
