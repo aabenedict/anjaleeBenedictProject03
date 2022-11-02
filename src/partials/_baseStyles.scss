@@ -27,13 +27,80 @@ img {
     display: block;
 }
 
+h3 {
+    color: $fontAltColour;
+    border: solid 4px $quaternaryColour;
+    border-radius: 50px;
+    padding: 10px 20px 15px;
+    margin: 10px;
+    display: inline-block;
+    transition: 350ms;
+    &:hover {
+        color: $quaternaryColour;
+        background-color: $primaryColour;
+    }
+}
+
+button {
+    margin-bottom: 100px;
+    margin-top: 20px;
+    color: $fontColour;
+    background-color: $quaternaryColour;
+    font-family: $accentFont;
+    padding: 20px;
+    border-radius: 50px;
+    transition: 350ms;
+    &:hover {
+        position: relative;
+        color: $quaternaryColour;
+        background-color: $primaryColour;
+    }
+}
+
 .gallery {
     @include flex (row, wrap, center, center)
 }
 
 .galleryItem {
     width: 33%;
-    button {
-        border: none;
+    transition: 350ms;
+    &:hover {
+        transform: scale(85%)
     }
 }
+
+.item {
+    .itemFlex {
+        @include flex (column, nowrap, center, center);
+    }
+
+    img {
+        width: 50%;
+        height: 300px;
+        object-fit: cover;
+        object-position: center;
+    }
+}
+
+.cart {
+    @include flex (row, wrap, center, center);
+    li {
+        width: 25%;
+        margin: 20px;
+        @include flex (column, nowrap, center, center);
+        img {
+            width: 100%;
+            height: 150px;
+            object-fit: contain;
+            object-position: center;
+        }
+    }
+}
+
+footer {
+    p {
+        text-align: center;
+        margin: 30px;
+    }
+}
+

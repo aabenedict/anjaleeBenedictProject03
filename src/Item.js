@@ -39,15 +39,17 @@ const Item = () => {
     }
 
     return (
-        <div>
-            <Link to="/">
-                <p>Back to Store</p>
+        <section className='item'>
+            <Link to="/store">
+                <h3>Back to Store</h3>
             </Link>
-            <img src={item.image} alt={item.description} />
-            <p>{item.description}</p>
-            <p>{item.price}</p>
-            <button onClick={handleBuyButton}>Add to Cart</button>
-        </div>
+            <div className='itemFlex'>
+                <img src={item.image} alt={item.description} />
+                <p>{item.description}</p>
+                <p>{item.price}</p>
+                <button onClick={handleBuyButton}>Add to Cart</button>
+            </div>
+        </section>
     )
 }
 

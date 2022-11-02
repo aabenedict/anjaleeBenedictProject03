@@ -1,6 +1,8 @@
 const Footer = () => {
     return (
-        <p>Made @ Juno College of Technology</p>
+        <footer>
+            <p>Made @ Juno College of Technology</p>
+        </footer>
     )
 }
 

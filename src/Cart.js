@@ -1,6 +1,7 @@
 import firebaseConfig from './firebase';
 import { getDatabase, ref, onValue, remove } from 'firebase/database'
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const Cart = () => {
     const [cart, setCart] = useState([]);
@@ -34,21 +35,26 @@ const Cart = () => {
     }
 
     return (
-        <ul className='gallery'>
-            {
-                cart.map((cartItem) => {
-                    return (
-                        <li key={cartItem.key} className='galleryItem'>
-                            <img src={cartItem.value.image} alt={cartItem.value.description} />
-                            <p>{cartItem.value.description}</p>
-                            <p>{cartItem.value.price}</p>
-                            <p>Quantity: {cartItem.quantity}</p>
-                            <button onClick={() => (handleRemoveButton(cartItem.key))}>Remove</button>
-                        </li>
-                    ) 
-                })
-            }
-        </ul>
+        <section>
+            <Link to="/store">
+                <h3>Back to Store</h3>
+            </Link>
+            <ul className='cart'>
+                {
+                    cart.map((cartItem) => {
+                        return (
+                            <li key={cartItem.key} className='galleryItem'>
+                                <img src={cartItem.value.image} alt={cartItem.value.description} />
+                                <p>{cartItem.value.description}</p>
+                                <p>{cartItem.value.price}</p>
+                                <p>Quantity: {cartItem.quantity}</p>
+                                <button onClick={() => (handleRemoveButton(cartItem.key))}>Remove</button>
+                            </li>
+                        )
+                    })
+                }
+            </ul>
+        </section>
 
             // {/* <img src={props.cartData.image} alt={props.cartData.description} />
             // <p>{props.cartData.description}</p>

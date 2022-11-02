@@ -39,7 +39,7 @@ const Store = () => {
 
     return (
         <>
-            <h2>Store is Here</h2>
+            <h2>Store</h2>
             <ul className='gallery'>
                 {
                     storeData.map((storeItem) => {
