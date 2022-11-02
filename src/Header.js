@@ -4,7 +4,7 @@ import headerImage from './assets/headerImage.jpg'
 const Header = () => {
     return (
         <header>
-            <img src={headerImage} alt="homepage image of glasses in front of a building" />
+            <img src={headerImage} alt="glasses in front of a building" />
             <div>
                 <h1>Welcome to EyeOptical</h1>
                 <Link to="/store"><h2>Go to Store</h2></Link>
