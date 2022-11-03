@@ -38,7 +38,7 @@ const Cart = (props) => {
             // grab setCartQuantity function from App.js via props
             props.setCartQuantity(newArray.length)
         })
-    }, [cart])
+    }, [props])
 
     // create a remove function that removes an item from cart
     const handleRemoveButton = (cartItemId) => {
