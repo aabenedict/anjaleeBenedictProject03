@@ -1,40 +1,35 @@
 // Import CSS
 import './App.css';
-// Import Linking and Routing
-import { Link, Routes, Route } from 'react-router-dom';
-import logo from './assets/logo.png'
-
+// Import Links, Routes & Hooks
+import { Routes, Route } from 'react-router-dom';
+import { useState } from 'react';
 // Import Components
-import Store from './Store';
-import Header from './Header';
-import Footer from './Footer';
-import Cart from './Cart';
-import Item from "./Item";
+import Store from './component/Store';
+import Header from './component/Header';
+import Footer from './component/Footer';
+import Cart from './component/Cart';
+import Item from "./component/Item";
+import Nav from './component/Nav';
 
 function App() {
-  
+  // create a state to store cart item quantity 
+  const [cartQuantity, setCartQuantity] = useState(0);
+
   return (
     <div className="App">
-      <nav>
-        <ul className='navBar'>
-          <li className='logo'>
-            <Link to="/"><img src={logo} alt="company logo" /></Link>
-          </li>
-          <ul>
-            <Link to="/"><li>Home</li></Link>
-            <Link to="/contact"><li>Contact</li></Link>
-            <Link to="/cart"><li>Cart</li></Link>
-          </ul>
-        </ul>
-      </nav>
+      {/* Add Nav component and pass down cartQuantity state using props*/}
+      <Nav cartQuantity={cartQuantity}/>
 
+      {/* Create routes for all the components */}
       <Routes>
         <Route path="/" element={<Header />} />
         <Route path="/store" element={<Store />} />
-        <Route path="/cart" element={<Cart />} />
+        {/* Pass down state function setCartQuantity to Cart */}
+        <Route path="/cart" element={<Cart setCartQuantity = {setCartQuantity}/>} />
         <Route path="/item/:itemId" element={<Item />} />
       </Routes>
 
+      {/* Add Footer component */}
       <Footer />
     </div>
   );

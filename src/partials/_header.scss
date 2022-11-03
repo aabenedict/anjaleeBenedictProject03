@@ -1,22 +1,37 @@
 @use "variables" as *;
 @use "mixins" as *;
 
+// Header Styles
 header {
     @include flex (row, nowrap, normal, center);
+    @include for-tablet-landscape {
+        @include flex (column, nowrap, center, center)
+    }
     img {
         margin-left: 0px;
         height: 100vh;
         width: 45%;
         object-fit: cover;
         object-position: center;
+        @include for-tablet-landscape {
+            width: 100%;
+            height: 50vh;
+        }
     }
     div {
         @include flex (column, nowrap, center, center);
         width: calc(50% - 10px);
         margin: 20px;
         margin-left: 50px;
+        @include for-tablet-landscape {
+            width: 100%;
+            margin-left: 20px;
+        }
         h1, li {
             text-align: center;
+            @include for-tablet-landscape {
+                margin: 25px 0px;
+            }
         }
         h2 {
             display: inline-block;
@@ -26,7 +41,8 @@ header {
             padding: 2px 15px 5px;
             margin: 10px 10px 50px;
             transition: 350ms;
-            &:hover {
+            &:hover,
+            &:focus {
                 color: $quaternaryColour;
                 background-color: $primaryColour;
             }

@@ -8,3 +8,29 @@
     justify-content: $mainAxis;
     align-items: $crossAxis;
 }
+
+//Mixin for media queries
+@mixin for-tablet-landscape {
+    @media (max-width: 780px) {
+        @content;
+    }
+}
+
+@mixin for-tablet-portrait {
+    @media (max-width: 570px) {
+        @content;
+    }
+}
+
+@mixin for-phone {
+    @media (max-width: 469px) {
+        @content;
+    }
+}
+
+
+
+
+
+
+
